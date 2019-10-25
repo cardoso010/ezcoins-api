@@ -16,7 +16,7 @@ defmodule EzCoinsApi.Bank.Donation do
     donation
     |> cast(attrs, [:quantity, :reason, :sender, :receiver])
     |> validate_required([:quantity, :reason, :sender, :receiver])
-    |> validate_number(:quantity, grater_than: 0)
+    |> validate_number(:quantity, greater_than: 0)
     |> validate_length(:reason, min: 5)
   end
 end
