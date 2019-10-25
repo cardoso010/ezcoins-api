@@ -3,6 +3,10 @@ defmodule EzCoinsApiWeb.Resolvers.DonationResolver do
 
   alias EzCoinsApi.{Accounts, Bank}
 
+  def donations(_, _, _) do
+    {:ok, Bank.list_donations()}
+  end
+
   def donate(_, %{input: input}, %{context: context}) do
     Bank.create_donation(Map.put(input, :sender, context.current_user.id))
   end
