@@ -15,8 +15,6 @@ defmodule EzCoinsApiWeb.Plugs.Context do
   end
 
   defp build_context(conn) do
-    ["Bearer " <> token] = get_req_header(conn, "authorization")
-    {:ok, claims} = Guardian.decode_and_verify(token)
     with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
          {:ok, claims} <- Guardian.decode_and_verify(token),
          {:ok, user} <- Guardian.resource_from_claims(claims) do
