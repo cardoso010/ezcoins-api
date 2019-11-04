@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+  # Database
+  postgres:
+    image: postgres:11.2
+    restart: always
+    container_name: "ezcoins-postgres"
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - ./docker/postgres/data/:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
