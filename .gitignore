@@ -33,5 +33,17 @@ npm-debug.log
 # this depending on your deployment strategy.
 /priv/static/
 
+docker/postgres
+
 .idea/
 *.iml
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+/config/*.secret.exs
+.elixir_ls/
